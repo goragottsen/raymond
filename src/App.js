@@ -13,6 +13,10 @@ const app = props => {
     ]
   });
 
+  const [dogsState, setDogsState] = useState('Jared, Jinger, Jumanji')
+
+  console.log(personsState, dogsState);
+
   const switchNameHandler = () =>{
     //console.log("was clicked!");
     //DON'T DO THIS: this.state.persons[0].name = "Anastasiia";
@@ -21,7 +25,8 @@ const app = props => {
         {name: "Nikolai", age: 34 },
         {name: "Anastasiia", age: 29 },
         {name: "Aisa", age: 3 }
-      ]
+      ],
+      //dogs: personsState.dogs
     }
     )
   }
