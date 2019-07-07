@@ -29,7 +29,8 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
-        <button onClick={this.switchNameHandler.bind(this, 'Nikolasha')}>Switch Name</button>
+        {/* Don't use often to avoid frequent re-compile. Use bind (below) instead! */}
+        <button onClick={() => this.switchNameHandler('Nikolai')}>Switch Name</button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
