@@ -9,7 +9,8 @@ class App extends Component {
       { name: 'Ana', age: 29 },
       { name: 'Aisa', age: 3}
     ],
-    otherState: 'some other value'
+    otherState: 'some other value',
+    showNames: false
   };
 
   switchNameHandler = (newName) => {
@@ -34,6 +35,11 @@ class App extends Component {
     });
   }
 
+  toggleNamesHandler = () => {
+    const doesShow = this.state.showNames;
+    this.setState({showNames : !doesShow}) // Awwwwww, so cool 
+  }
+
   render() {
     // Inline style - scoped to the component
     const style = {
@@ -51,23 +57,28 @@ class App extends Component {
         {/* Don't use often to avoid frequent re-render. Use bind (below) instead! */}
         <button 
         style={style}
-        onClick={() => this.switchNameHandler('Nikolai')}>Switch Name</button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Niko')}
-          changed={this.nameChangedHandler}
-        >
-          My Hobbies: Hiking
-        </Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        />
+        onClick={this.toggleNamesHandler}>Toggle Names</button>
+        { /* JavaScript ternary expression */
+          this.state.showNames ?
+            <div>
+              <Person
+                name={this.state.persons[0].name}
+                age={this.state.persons[0].age}
+              />
+              <Person
+                name={this.state.persons[1].name}
+                age={this.state.persons[1].age}
+                click={this.switchNameHandler.bind(this, 'Niko')}
+                changed={this.nameChangedHandler}
+              >
+                My Hobbies: Hiking
+              </Person>
+              <Person
+                name={this.state.persons[2].name}
+                age={this.state.persons[2].age}
+              />
+            </div> : null
+        }
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
