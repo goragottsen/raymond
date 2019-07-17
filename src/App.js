@@ -15,7 +15,7 @@ class App extends Component {
 
   switchNameHandler = (newName) => {
     // console.log('Was clicked!');
-    // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
+    // DON'T DO THIS: this.state.persons[0].name = 'Anastasiia';
     this.setState({
       persons: [
         { name: newName, age: 34 },
@@ -57,18 +57,21 @@ class App extends Component {
               <Person
                 name={this.state.persons[0].name}
                 age={this.state.persons[0].age}
+                comment="This is static component yet, no input"
               />
               <Person
                 name={this.state.persons[1].name}
                 age={this.state.persons[1].age}
                 click={this.switchNameHandler.bind(this, 'Niko')}
                 changed={this.nameChangedHandler}
+                comment="This is dynamic component, type whatever you want. Plus you can click the text and enjoy the content change :D"
               >
                 My Hobbies: Hiking
               </Person>
               <Person
                 name={this.state.persons[2].name}
                 age={this.state.persons[2].age}
+                comment="This is static component yet, no input"
               />
             </div>
       );
