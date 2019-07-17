@@ -6,3 +6,14 @@
     padding: 16px;
     text-align: center;
 }
+
+.Person h4{
+    color: rgb(91, 195, 230);
+}
+
+.Person input{
+    text-align: center;
+    height: 2em;
+    border-radius: 3px;
+    outline: none;
+}

@@ -43,11 +43,13 @@ class App extends Component {
   render() {
     // Inline style - scoped to the component
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'rgb(91, 195, 230)',
       font: 'inherit',
-      border: '1px solid blue',
+      border: '1px solid turquoise',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      outline: 'none',
+      'border-radius': '5px'
     }
 
     let persons = null;
@@ -57,21 +59,21 @@ class App extends Component {
               <Person
                 name={this.state.persons[0].name}
                 age={this.state.persons[0].age}
-                comment="This is static component yet, no input"
+                comment="This is static component yet, no input, no click :("
               />
               <Person
                 name={this.state.persons[1].name}
                 age={this.state.persons[1].age}
                 click={this.switchNameHandler.bind(this, 'Niko')}
                 changed={this.nameChangedHandler}
-                comment="This is dynamic component, type whatever you want. Plus you can click the text and enjoy the content change :D"
+                comment="This is dynamic component, type whatever you want. Plus you can click the blue text and enjoy the content change :D"
               >
                 My Hobbies: Hiking
               </Person>
               <Person
                 name={this.state.persons[2].name}
                 age={this.state.persons[2].age}
-                comment="This is static component yet, no input"
+                comment="This is static component yet, no input, no click :("
               />
             </div>
       );
