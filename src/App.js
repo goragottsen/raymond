@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 
@@ -56,10 +55,6 @@ class App extends Component {
       cursor: 'pointer',
       outline: 'none',
       borderRadius: '5px',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'darkgray'
-      }
     }
 
     let persons = null;
@@ -79,9 +74,6 @@ class App extends Component {
             </div>
       );
       style.backgroundColor = 'rgb(248, 76, 76)';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-      }
     }
 
     const classes = [];
@@ -91,10 +83,8 @@ class App extends Component {
     }
     if(this.state.persons.length < 2){
       classes.push('bold'); //classes = ['red', bold']
-    } 
-    // StyleRoot needed for @media transforms
+    }
     return (
-      <StyleRoot> 
         <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
@@ -103,11 +93,10 @@ class App extends Component {
         style={style}
         onClick={this.toggleNamesHandler}>Toggle Names</button>
         {persons}
-      </div>
-      </StyleRoot>      
+      </div>  
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-export default Radium(App);
+export default App;
