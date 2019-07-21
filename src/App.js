@@ -48,6 +48,7 @@ class App extends Component {
     // Inline style - scoped to the component
     const style = {
       backgroundColor: 'rgb(91, 195, 230)',
+      color: 'white',
       font: 'inherit',
       border: '1px solid turquoise',
       padding: '8px',
@@ -72,6 +73,7 @@ class App extends Component {
           })}
             </div>
       );
+      style.backgroundColor = 'rgb(248, 76, 76)';
     }
 
     return (
