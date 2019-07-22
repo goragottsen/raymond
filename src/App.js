@@ -45,19 +45,10 @@ class App extends Component {
   }
 
   render() {
-    // Inline style - scoped to the component
-    const style = {
-      backgroundColor: 'rgb(91, 195, 230)',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid turquoise',
-      padding: '8px',
-      cursor: 'pointer',
-      outline: 'none',
-      borderRadius: '5px',
-    }
 
     let persons = null;
+    let btnClass = '';
+
     if(this.state.showNames){
       persons = (
         <div>
@@ -73,7 +64,7 @@ class App extends Component {
           })}
             </div>
       );
-      style.backgroundColor = 'rgb(248, 76, 76)';
+      btnClass = classes.Red;
     }
 
     const assignedClasses = [];
@@ -89,9 +80,9 @@ class App extends Component {
         <h1>Hi, I'm a React App</h1>
         <p className={assignedClasses.join(' ')}>This is really working!</p>
         {/* Don't use often to avoid frequent re-render. Use bind (below) instead! */}
-        <button 
-        style={style}
-        onClick={this.toggleNamesHandler}>Toggle Names</button>
+        <button
+          className={btnClass}
+          onClick={this.toggleNamesHandler}>Toggle Names</button>
         {persons}
       </div>  
     );
