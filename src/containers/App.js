@@ -14,15 +14,26 @@ class App extends Component {
     return state;
   }
 
-  componentWillMount(){
-    // used to prepare the state correctly
-    // now mainly done in constructor or getDerivedStateFromProps
-    console.log('[App.js] componentWillMount');
-  }
+  // componentWillMount(){
+  //   // used to prepare the state correctly
+  //   // now mainly done in constructor or getDerivedStateFromProps
+  //   console.log('[App.js] componentWillMount');
+  // }
 
   componentDidMount(){
     console.log('[App.js] componentDidMount');
   }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+  
+  componentDidUpdate(){
+    console.log('[App.js] componentDidUpdate');
+  }
+
+
 
   state = {
     persons: [
