@@ -3,6 +3,27 @@ import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('[App.js] getDerivedStateFromProps, ', props);
+    return state;
+  }
+
+  componentWillMount(){
+    // used to prepare the state correctly
+    // now mainly done in constructor or getDerivedStateFromProps
+    console.log('[App.js] componentWillMount');
+  }
+
+  componentDidMount(){
+    console.log('[App.js] componentDidMount');
+  }
+
   state = {
     persons: [
       { id: 'djbhfb', name: 'Nik', age: 34},
@@ -44,8 +65,9 @@ class App extends Component {
     this.setState({showNames : !doesShow}) // Awwwwww, so cool 
   }
 
+  // accessing render method doesn't mean that real dom is re-rendered, but V-Dom is --> check if real dom has to be changed
   render() {
-
+    console.log('[App.js] render');
     let persons = null;
 
     if(this.state.showNames){
@@ -59,6 +81,7 @@ class App extends Component {
     return (
         <div className={classes.App}>
         <Cockpit
+          title={this.props.appTitle}
           showPersons={this.state.showNames}
           persons={this.state.persons}
           clicked={this.toggleNamesHandler}/>
