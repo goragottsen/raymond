@@ -29,10 +29,10 @@ const cockpit = (props) => {
       btnClass = classes.Red;
   }
   
-  if(props.persons.length < 3){
+  if(props.personsLength < 3){
     assignedClasses.push(classes.red); //classes = ['red']
   }
-  if(props.persons.length < 2){
+  if(props.personsLength < 2){
     assignedClasses.push(classes.bold); //classes = ['red', bold']
   }
 
@@ -47,5 +47,5 @@ const cockpit = (props) => {
       </div>
   );
 }
-
-export default cockpit;
+// Memo prevents re-render with every change of parent component
+export default React.memo(cockpit);
