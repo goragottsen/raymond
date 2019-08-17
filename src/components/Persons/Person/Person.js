@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import Aux from '../../../hoc/Aux'
 import classes from './Person.css';
 
 class Person extends Component {
@@ -10,12 +10,12 @@ class Person extends Component {
     render(){
         console.log('[Person.js] rendering...');
         return (
-            <div className={classes.Person} >
+            <Aux>
                 <h4 onClick={this.props.click}>I'm {this.props.name} and I'm {this.props.age} years old!</h4>
                 <p>{this.props.children}</p>
                 <input type="text" onChange={this.props.changed} value={this.props.name} />
-                <p>{this.props.comment}</p>
-            </div>        
+                <p>{this.props.comment}</p>ß
+            </Aux>        
         )
     }
     
